@@ -26,36 +26,26 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image.asset(
-<<<<<<< HEAD
                   'assets/unival.png',
-=======
-                  'assets/unival.png', 
->>>>>>> origin/main
                   width: 200,
                   height: 200,
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const TextField(
-                  decoration: InputDecoration(
+                const SizedBox(height: 10),
+                TextField(
+                  decoration: const InputDecoration(
                     hintText: 'Username',
                     border: OutlineInputBorder(),
                   ),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
-                const TextField(
-                  decoration: InputDecoration(
+                const SizedBox(height: 10),
+                TextField(
+                  decoration: const InputDecoration(
                     hintText: 'Password',
                     border: OutlineInputBorder(),
                   ),
                   obscureText: true,
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                const SizedBox(height: 10),
                 ElevatedButton(
                   onPressed: () async {
                     setState(() {
@@ -78,9 +68,7 @@ class _LoginPageState extends State<LoginPage> {
                   },
                   child: const Text('Login'),
                 ),
-                const SizedBox(
-                  height: 10,
-                ),
+                const SizedBox(height: 10),
                 TextButton(
                   onPressed: () {},
                   child: const Text('Daftar'),
@@ -106,4 +94,5 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
+
 
