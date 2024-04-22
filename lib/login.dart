@@ -26,7 +26,11 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image.asset(
+<<<<<<< HEAD
                   'assets/unival.png',
+=======
+                  'assets/unival.png', 
+>>>>>>> origin/main
                   width: 200,
                   height: 200,
                 ),
