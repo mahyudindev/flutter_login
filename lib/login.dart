@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:lottie/lottie.dart';
+import 'home.dart';
 
-class LoginPage extends StatelessWidget {
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
+
+  @override
+  _LoginPageState createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  bool _isLoading = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -15,18 +26,22 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image.asset(
-                  'assets/unival.png', // Ganti dengan path gambar logo Anda
+                  'assets/unival.png',
                   width: 200,
                   height: 200,
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(
+                  height: 10,
+                ),
                 const TextField(
                   decoration: InputDecoration(
                     hintText: 'Username',
                     border: OutlineInputBorder(),
                   ),
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(
+                  height: 10,
+                ),
                 const TextField(
                   decoration: InputDecoration(
                     hintText: 'Password',
@@ -34,10 +49,33 @@ class LoginPage extends StatelessWidget {
                   ),
                   obscureText: true,
                 ),
-                const SizedBox(height: 20),
+                const SizedBox(
+                  height: 10,
+                ),
                 ElevatedButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    setState(() {
+                      _isLoading = true;
+                    });
+
+                    await Future.delayed(const Duration(seconds: 2));
+
+                    setState(() {
+                      _isLoading = false;
+                    });
+
+                    Navigator.push(
+                      // ignore: use_build_context_synchronously
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const HomePage(),
+                      ),
+                    );
+                  },
                   child: const Text('Login'),
+                ),
+                const SizedBox(
+                  height: 10,
                 ),
                 TextButton(
                   onPressed: () {},
@@ -48,6 +86,20 @@ class LoginPage extends StatelessWidget {
           ),
         ),
       ),
+      bottomSheet: _isLoading
+          ? SizedBox(
+              height: 100,
+              child: Center(
+                child: Lottie.asset(
+                  'assets/login.json',
+                  width: 100,
+                  height: 100,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            )
+          : null,
     );
   }
 }
+
