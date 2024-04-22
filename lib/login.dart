@@ -15,7 +15,7 @@ class LoginPage extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image.asset(
-                  'assets/unival.png', // Ganti dengan path gambar logo Anda
+                  'assets/unival.png', 
                   width: 200,
                   height: 200,
                 ),
