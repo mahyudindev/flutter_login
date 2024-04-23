@@ -23,17 +23,24 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             const Text(
-              'Selamat Datang!',
+              'login Success!',
               style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
                   fontSize: 44),
             ),
-            const SizedBox(height: 20),
+            const Text(
+              'Hello',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: 44),
+            ),
+            const SizedBox(height: 10),
             Lottie.asset(
-              'assets/animation.json',
-              width: 200,
-              height: 200,
+              'assets/animation/animation.json',
+              width: 400,
+              height: 400,
               fit: BoxFit.contain,
             ),
           ],

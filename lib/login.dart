@@ -10,14 +10,18 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  String _username = '';
+  String _password = '';
   bool _isLoading = false;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login Page'),
+        backgroundColor: Color.fromARGB(255, 25, 25, 26),
+        title: const Text('Login Page', style: TextStyle(color: Colors.white)),
       ),
+      backgroundColor: Color.fromARGB(255, 255, 255, 255),
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
@@ -26,52 +30,61 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 Image.asset(
-                  'assets/unival.png',
-                  width: 200,
-                  height: 200,
+                  'assets/icon/icon.png',
+                  width: 150,
+                  height: 150,
                 ),
                 const SizedBox(height: 10),
-                TextField(
-                  decoration: const InputDecoration(
-                    hintText: 'Username',
-                    border: OutlineInputBorder(),
+                Container(
+                  width: 300,
+                  child: TextField(
+                    decoration: const InputDecoration(
+                      hintText: 'Username',
+                    ),
+                    onChanged: (value) {
+                      _username = value;
+                    },
                   ),
                 ),
                 const SizedBox(height: 10),
-                TextField(
-                  decoration: const InputDecoration(
-                    hintText: 'Password',
-                    border: OutlineInputBorder(),
+                Container(
+                  width: 300,
+                  child: TextField(
+                    decoration: const InputDecoration(
+                      hintText: 'Password',
+                    ),
+                    obscureText: true,
+                    onChanged: (value) {
+                      _password = value;
+                    },
                   ),
-                  obscureText: true,
                 ),
                 const SizedBox(height: 10),
-                ElevatedButton(
-                  onPressed: () async {
-                    setState(() {
-                      _isLoading = true;
-                    });
+                SizedBox(
+                  width: 250,
+                  child: ElevatedButton(
+                    onPressed: () async {
+                      setState(() {
+                        _isLoading = true;
+                      });
 
-                    await Future.delayed(const Duration(seconds: 2));
+                      await Future.delayed(const Duration(seconds: 2));
 
-                    setState(() {
-                      _isLoading = false;
-                    });
+                      setState(() {
+                        _isLoading = false;
+                      });
 
-                    Navigator.push(
-                      // ignore: use_build_context_synchronously
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => const HomePage(),
-                      ),
-                    );
-                  },
-                  child: const Text('Login'),
-                ),
-                const SizedBox(height: 10),
-                TextButton(
-                  onPressed: () {},
-                  child: const Text('Daftar'),
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const HomePage()),
+                      );
+                    },
+                    child: const Text(
+                      'Login',
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
                 ),
               ],
             ),
@@ -83,7 +96,7 @@ class _LoginPageState extends State<LoginPage> {
               height: 100,
               child: Center(
                 child: Lottie.asset(
-                  'assets/login.json',
+                  'assets/animation/login.json',
                   width: 100,
                   height: 100,
                   fit: BoxFit.cover,
@@ -94,5 +107,3 @@ class _LoginPageState extends State<LoginPage> {
     );
   }
 }
-
-
